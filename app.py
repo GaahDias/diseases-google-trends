@@ -84,7 +84,7 @@ for x in range(len(suggestions)):
         if not tmp_data.empty:
             # Data cleansing
             tmp_data = tmp_data.drop(labels=['isPartial'],axis='columns')
-            tmp_data = tmp_data.rename(columns={suggestions[x]['mid']: suggestions[x]['title']})
+            tmp_data = tmp_data.rename(columns={suggestions[x]['mid']: suggestions[x]['title'].lower()})
             tmp_data['region_id'] = geo_codes[y]
 
         try:
@@ -97,3 +97,4 @@ for x in range(len(suggestions)):
         final_data = pd.concat([tmp_data], axis=1)
         # Creating final csv file into the created folder
         final_data.to_csv('./Google-Trends_' + geo_code + '_' + str(today_date) + '/' + geo_codes[y] + '_' + suggestions[x]['title'] + '_' + year_month + '_Google-Trends.csv')
+        
