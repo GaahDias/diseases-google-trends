@@ -3,6 +3,7 @@
 # from a specific country, and it's subregions. 
 # Written by Gabriel Dias
 
+
 # Imports
 import sys
 import os
@@ -13,13 +14,13 @@ import pandas as pd
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
+
 # Defining main variables:
 # pytrends - Google Trends API.
 # keywords - it's going to store all keywords provided by the user for the search.
 # suggestions - it's going to store the suggestions codes based on the keywords.
 # geo_code - just a var to store the main geo code (MX, US, ...).
 # geo_codes - list to store all geo codes (subregions) for a specific region.
-# inc_sub_region - bool flag to include or not subregions in search.
 # today_date - just a var to hold today's date, which will be used later on Google Trends search.
 # year_month - year and month from today_date's.
 # year - in how many years the search is going to be made
@@ -97,4 +98,3 @@ for x in range(len(suggestions)):
         final_data = pd.concat([tmp_data], axis=1)
         # Creating final csv file into the created folder
         final_data.to_csv('./Google-Trends_' + geo_code + '_' + str(today_date) + '/' + geo_codes[y] + '_' + suggestions[x]['title'] + '_' + year_month + '_Google-Trends.csv')
-        
