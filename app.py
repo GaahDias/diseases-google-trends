@@ -22,10 +22,7 @@ from dateutil.relativedelta import relativedelta
 # geo_code - just a var to store the main geo code (MX, US, ...).
 # geo_codes - list to store all geo codes (subregions) for a specific region.
 pytrends = TrendReq(hl='en-US', tz=360)
-keywords = []
-suggestions = []
 geo_code = ''
-geo_codes = []
 
 # Constant variables:
 # today_date - just a var to hold today's date, which will be used later on Google Trends search.
