@@ -17,12 +17,11 @@ from dateutil.relativedelta import relativedelta
 
 # Defining main variables:
 # pytrends - Google Trends API.
-# keywords - it's going to store all keywords provided by the user for the search.
-# suggestions - it's going to store the suggestions codes based on the keywords.
-# geo_code - just a var to store the main geo code (MX, US, ...).
-# geo_codes - list to store all geo codes (subregions) for a specific region.
+# keywords (user input) - it's going to store all keywords provided by the user for the search.
+# geo_code (user input) - just a var to store the main geo code (MX, US, ...).
 pytrends = TrendReq(hl='en-US', tz=360)
-geo_code = ''
+keywords = sys.argv[2:]
+geo_code = sys.argv[1]
 
 # Constant variables:
 # today_date - just a var to hold today's date, which will be used later on Google Trends search.
@@ -33,10 +32,6 @@ TODAY_DATE = date.today()
 YEAR_MONTH = TODAY_DATE.strftime('%Y-%m')
 YEAR = 1
 SEARCH_TYPE = 'Disease'
-
-# User input
-keywords = sys.argv[2:]
-geo_code = sys.argv[1]
 
 # Getting suggestion code based on keyword
 def get_suggestion_codes(keywords, search_type):
